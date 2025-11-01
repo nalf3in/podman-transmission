@@ -1,4 +1,4 @@
-ROM debian:trixie-slim
+FROM debian:trixie-slim
 
 ARG BUILD_DATE
 ARG VERSION
