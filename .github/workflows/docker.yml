@@ -2,20 +2,22 @@ name: Build and publish Docker image
 
 on:
   push:
-    branches: [ main ]        # change if your default branch is different
-    tags: ['v*']              # optional: also build for version tags
-  pull_request:               # optional: just build (no push) on PRs
+    branches: [ main ]
+    tags: ['v*']
+  pull_request:
+  schedule:
+    - cron: '0 5 * * 1'
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: ${{ github.repository }} # <owner>/<repo>
+  IMAGE_NAME: ${{ github.repository }}
   
 jobs:
   build:
     runs-on: ubuntu-latest
     permissions:
       contents: read
-      packages: write           # needed to push to GHCR
+      packages: write
       id-token: write
 
     steps:
