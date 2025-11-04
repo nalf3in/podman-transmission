@@ -11,6 +11,7 @@ RUN apt-get update \
  && apt-get install -y --no-install-recommends \
       transmission-daemon \
       transmission-cli \
+      ca-certificates \
  && rm -rf /var/lib/apt/lists/* \
  && mkdir -p /config
 
